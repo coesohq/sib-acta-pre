@@ -1,0 +1,22 @@
+---
+- name: set fact - acta_dir
+  set_fact:
+    acta_dir: "{{ git_path }}/acta"
+
+- name: remove acta dir if it already exists
+  file: state=absent
+        path={{ acta_dir }}
+
+- name: create acta dir
+  file: state=directory
+        path={{ acta_dir }}
+
+- name: copy config_acta
+  template: src=config_acta.j2
+            dest={{ acta_dir }}/config_acta
+            backup=no
+
+- name: copy commit_list
+  template: src=commit_list.j2
+            dest={{ acta_dir }}/commit_list
+            backup=no
