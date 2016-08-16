@@ -1,10 +1,10 @@
-acta-pre
-=========
+records-pre
+===========
 
 This role records information in files about what is being built and the
 environment in which it's being built.
 
-* config_acta
+* config_records
 * commit_list
 
 Requirements
@@ -29,7 +29,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - role: aikchar.sib-acta-pre
+         - role: aikchar.sib-records-pre
 
 License
 -------
