@@ -1,22 +1,22 @@
 ---
-- name: set fact - acta_dir
+- name: set fact - records_dir
   set_fact:
-    acta_dir: "{{ git_path }}/acta"
+    records_dir: "{{ git_path }}/records"
 
-- name: remove acta dir if it already exists
+- name: remove records dir if it already exists
   file: state=absent
-        path={{ acta_dir }}
+        path={{ records_dir }}
 
-- name: create acta dir
+- name: create records dir
   file: state=directory
-        path={{ acta_dir }}
+        path={{ records_dir }}
 
-- name: copy config_acta
-  template: src=config_acta.j2
-            dest={{ acta_dir }}/config_acta
+- name: copy config_records
+  template: src=config_records.j2
+            dest={{ records_dir }}/config_records
             backup=no
 
 - name: copy commit_list
   template: src=commit_list.j2
-            dest={{ acta_dir }}/commit_list
+            dest={{ records_dir }}/commit_list
             backup=no
